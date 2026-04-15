@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gartic Voc</title>
+    <title>Gartic Voc - Terminé</title>
     <style>
         :root {
             --bg: #0b0c0d;
             --card: #15171a;
             --discord: #5865F2;
             --discord-hover: #4752c4;
+            --error: #ff4747;
             --success: #00fa9a;
             --text: #ececec;
             --text-muted: #80848e;
@@ -38,8 +39,8 @@
         }
 
         .status-badge {
-            background: rgba(0, 250, 154, 0.1);
-            color: var(--success);
+            background: rgba(255, 71, 71, 0.1);
+            color: var(--error);
             padding: 6px 12px;
             border-radius: 20px;
             font-size: 0.7rem;
@@ -49,24 +50,18 @@
             text-transform: uppercase;
         }
 
+        h1 { font-size: 1.5rem; margin-bottom: 10px; color: var(--text); }
         h2 { color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; margin: 15px 0 5px; }
 
         .timer { font-size: 2.8rem; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -1px; }
         
-        .remaining-sub { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; }
+        .remaining-sub { color: var(--success); font-size: 1.1rem; font-weight: 700; margin-top: 10px; }
         
-        .hours-left-highlight {
-            color: var(--success);
-            font-weight: 800;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-        }
-
         .hour-counter {
             font-size: 1.2rem;
             font-weight: 700;
             color: var(--text);
-            margin-top: 10px;
+            margin-top: 20px;
         }
 
         .hour-total { color: var(--text-muted); font-weight: 400; }
@@ -80,105 +75,54 @@
         }
 
         #fill { 
-            background: linear-gradient(90deg, var(--discord), #a370f7); 
+            background: var(--success); 
             height: 100%; 
-            width: 0%; 
-            transition: width 1s linear; 
+            width: 100%; 
         }
 
         .perc-text { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px; }
 
-        .btn-join {
+        .btn-closed {
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: var(--discord);
-            color: white;
+            background-color: #2b2d31;
+            color: var(--text-muted);
             text-decoration: none;
             padding: 14px;
             border-radius: 12px;
             font-weight: 600;
-            transition: 0.2s;
             gap: 10px;
+            cursor: not-allowed;
         }
-
-        .btn-join:hover { background-color: var(--discord-hover); transform: translateY(-2px); }
     </style>
 </head>
 <body>
 
 <div class="card">
-    <div class="status-badge">● Vocal en direct</div>
+    <div class="status-badge">● Vocal Terminé</div>
     
-    <h2>Temps écoulé</h2>
-    <div id="elapsed" class="timer">00:00:00</div>
+    <h1>Gartic Voc</h1>
     
-    <h2>Temps restant</h2>
-    <div id="totalHoursRemaining" class="hours-left-highlight">-- H RESTANTES</div>
-    <div id="remaining" class="remaining-sub">Calcul...</div>
+    <h2>Durée totale</h2>
+    <div id="elapsed" class="timer">168:00:00</div>
+    
+    <div class="remaining-sub">OBJECTIF ATTEINT !</div>
 
     <div class="hour-counter">
-        <span id="hoursPassed">0</span>H <span class="hour-total">/ 168H</span>
+        <span>168</span>H <span class="hour-total">/ 168H</span>
     </div>
 
     <div class="progress-bar-bg">
         <div id="fill"></div>
     </div>
-    <div class="perc-text"><span id="percent">0</span>% de l'objectif</div>
+    <div class="perc-text">100% de l'objectif</div>
 
-    <a href="https://discord.com/channels/833687278697578529/1490169389234913310" class="btn-join">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M19.73 4.87a18.2 18.2 0 00-4.6-1.44c-.21.37-.4.75-.58 1.14a17.4 17.4 0 00-5.1 0 14.6 14.6 0 00-.58-1.14 18.2 18.2 0 00-4.6 1.44A18.06 18.06 0 002 18.92c2.1 1.55 4.38 2.5 6.74 3.2.54-.74 1.01-1.53 1.41-2.37-1.03-.39-2.02-.9-2.92-1.53.25-.18.5-.37.72-.56 4.15 1.91 8.65 1.91 12.8 0 .23.19.47.38.72.56-.9.63-1.89 1.14-2.92 1.53.4 1.15.87 1.63 1.41 2.37 2.36-.7 4.64-1.65 6.74-3.2a18.06 18.06 0 00-4.71-14.05zM8.02 15.33c-1.18 0-2.15-1.08-2.15-2.42s.94-2.42 2.15-2.42c1.21 0 2.17 1.08 2.17 2.42s-.96 2.42-2.17 2.42zm7.97 0c-1.18 0-2.15-1.08-2.15-2.42s.94-2.42 2.15-2.42c1.21 0 2.17 1.08 2.17 2.42s-.96 2.42-2.17 2.42z"/></svg>
-        Rejoindre le Vocal
-    </a>
+    <div class="btn-closed">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>
+        Le vocal est fermé
+    </div>
 </div>
-
-<script>
-    const START_DATE = new Date("2026-04-05T04:10:00");
-    const TOTAL_HOURS = 168;
-    const ONE_WEEK_MS = TOTAL_HOURS * 60 * 60 * 1000;
-    const END_DATE = new Date(START_DATE.getTime() + ONE_WEEK_MS);
-
-    function update() {
-        const now = new Date();
-        const elapsedMs = now - START_DATE;
-        const leftMs = END_DATE - now;
-
-        document.getElementById('elapsed').innerText = format(elapsedMs);
-
-        if (leftMs > 0) {
-            const totalHoursLeft = Math.floor(leftMs / (1000 * 60 * 60));
-            document.getElementById('totalHoursRemaining').innerText = totalHoursLeft + " H RESTANTES";
-            document.getElementById('remaining').innerText = "Il reste " + format(leftMs);
-        } else {
-            document.getElementById('totalHoursRemaining').innerText = "";
-            document.getElementById('remaining').innerText = "OBJECTIF ATTEINT !";
-            document.getElementById('remaining').style.color = "var(--success)";
-        }
-
-        const hoursPassed = Math.floor(elapsedMs / (1000 * 60 * 60));
-        document.getElementById('hoursPassed').innerText = hoursPassed;
-        
-        const progress = Math.min((elapsedMs / ONE_WEEK_MS) * 100, 100);
-        document.getElementById('fill').style.width = progress + "%";
-        document.getElementById('percent').innerText = progress.toFixed(1);
-    }
-
-    function format(ms) {
-        if (ms < 0) return "00h 00m 00s";
-        const s = Math.floor(ms / 1000);
-        const d = Math.floor(s / 86400);
-        const h = Math.floor((s % 86400) / 3600);
-        const m = Math.floor((s % 3600) / 60);
-        const sec = s % 60;
-        let res = "";
-        if (d > 0) res += d + "j ";
-        res += (h < 10 ? "0"+h : h) + "h " + (m < 10 ? "0"+m : m) + "m " + (sec < 10 ? "0"+sec : sec) + "s";
-        return res;
-    }
-
-    setInterval(update, 1000);
-    update();
-</script>
 
 </body>
 </html>
